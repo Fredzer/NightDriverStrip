@@ -325,6 +325,60 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
         #define LED_PIN0 5
     #endif
 
+#elif M5JAM
+
+    // This was the DEMO project customized for the M5 that includes screen support and other
+
+    #ifndef PROJECT_NAME
+    #define PROJECT_NAME            "M5-Jam"
+    #endif
+
+    #define MATRIX_WIDTH            8
+    #define MATRIX_HEIGHT           8
+    #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
+    #define NUM_CHANNELS            1
+    #define COLOR_ORDER             EOrder::RGB
+    #define POWER_LIMIT_MW          (150*1)   // Real low for testing
+
+    #define ENABLE_AUDIOSERIAL          0   // Report peaks at 2400baud on serial port for PETRock consumption
+    #define ENABLE_WIFI                 1   // Connect to WiFi
+    #define INCOMING_WIFI_ENABLED       1   // Accepting incoming color data and commands
+    #define WAIT_FOR_WIFI               0   // Hold in setup until we have WiFi - for strips without effects
+    #define TIME_BEFORE_LOCAL           2   // How many seconds before the lamp times out and shows local content
+    #define ENABLE_WEBSERVER            1   // Turn on the internal webserver
+    #define ENABLE_NTP                  1   // Set the clock from the web
+    #define ENABLE_OTA                  1   // Accept over the air flash updates
+    #define ENABLE_REMOTE               0   // IR Remote Control
+    #define ENABLE_AUDIO                0   // Listen for audio from the microphone and process it
+    #define COLORDATA_SERVER_ENABLED    0
+
+    #if USE_PSRAM
+        #define MAX_BUFFERS             500
+    #else
+        #define MAX_BUFFERS             24
+    #endif
+
+    #define DEFAULT_EFFECT_INTERVAL     (60*60*24*5)
+
+    #if USE_M5
+        #define LED_PIN0 32
+    #elif LILYGOTDISPLAYS3
+        #define LED_PIN0 21
+    #else
+        #define LED_PIN0 5
+    #endif
+
+    #define TOGGLE_BUTTON_1 37
+    #define TOGGLE_BUTTON_2 39
+
+    #if USE_M5
+        #define LED_PIN0 32
+    #elif LILYGOTDISPLAYS3
+        #define LED_PIN0 21
+    #else
+        #define LED_PIN0 5
+    #endif
+
 
 #elif LANTERN
 
